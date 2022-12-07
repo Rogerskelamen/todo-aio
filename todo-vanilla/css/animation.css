@@ -1,0 +1,27 @@
+.pop-up {
+  animation: popUp 1.5s;
+}
+
+.pop-in {
+  animation: popIn 1.5s;
+}
+
+@keyframes popUp {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow:  25px 25px 50px #bebebe,
+                 -25px -25px 50px #ffffff;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    box-shadow:  25px 25px 50px #bebebe,
+                 -25px -25px 50px #ffffff;
+  }
+  100% {
+    box-shadow: none;
+  }
+}

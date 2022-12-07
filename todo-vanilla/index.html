@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Todo Vanilla</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h3 class="title">Todo Vanilla</h3>
+  </header>
+  <div class="container">
+
+    <div id="add" class="neumorph no-display">
+      <div class="title">
+        please enter
+      </div>
+      <form class="add-form">
+        <input class="add-ipt" type="text" name="todo">
+        <button class="submit-btn" type="submit">submit</button>
+      </form>
+    </div>
+
+    <div id="todo" class="neumorph">
+      <button class="add-btn">+</button>
+      <h4 class="title">
+        to be done
+      </h4>
+      <ul class="todo-list">
+        <li class="todo-item item">
+          <span class="text">asdf</span>
+          <input type="checkbox">
+        </li>
+        <li class="todo-item item">
+          <span class="text">asdf</span>
+          <input type="checkbox">
+        </li>
+      </ul>
+    </div>
+
+    <div id="done" class="neumorph">
+      <h4 class="title">already done</h4>
+      <ul class="done-list">
+        <li class="done-item item">
+          <span class="text">asdf</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
