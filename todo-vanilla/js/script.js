@@ -7,8 +7,22 @@ const addCard = document.getElementById('add')
 const addIpt = document.getElementsByClassName('add-ipt')[0]
 const addSub = document.getElementsByClassName('submit-btn')[0]
 
+// baseURL
+const baseURL = 'http://localhost:3030'
+
 async function getTodoList() {
-  // fetch()
+  const response = await fetch(
+    baseURL + '/',
+    { method: 'GET' }
+  )
+    .then(res => res.json())
+  console.log(response)
+  if (response.code !== 200) {
+    return
+  }
+  todolists.forEach((item, index) => {
+
+  })
 }
 
 addBtn.addEventListener('click', () => {
@@ -22,8 +36,12 @@ addSub.addEventListener('click', async e => {
   if (!addIpt.value) {
     return
   }
-  const response = await fetch(`http://localhost:3030/add?name=${addIpt.value}`, {
-    method: 'PUT'
-  })
+  const response = await fetch(
+    baseURL + `/add?name=${addIpt.value}`,
+    { method: 'PUT' }
+  )
+    .then(res => res.json())
+  console.log(response)
+  addIpt.value = ''
   getTodoList()
 })
