@@ -27,6 +27,7 @@ async function getTodoList() {
     .then(res => res.json())
   console.log(dones)
 
+  // display todo items
   let todoitems = ''
   todos.forEach(item => {
     todoitems += `
@@ -38,6 +39,7 @@ async function getTodoList() {
   });
   todolist.innerHTML = todoitems
 
+  // display done items
   let doneitems = ''
   dones.forEach(item => {
     doneitems += `
@@ -48,17 +50,31 @@ async function getTodoList() {
   });
   donelist.innerHTML = doneitems
 
+  // bind checkbox with checked happened
   Array
     .from(document.getElementsByClassName('todo-item'))
     .forEach(item => {
       item.children[1].addEventListener('change', e => {
         if (e.target.checked) {
-          console.log('adf')
-          // e.target.parentNode.removeChild()
-          // deleteTodo(e.target.id)
+          deleteTodo(e.target.id)
+          e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+          donelist.innerHTML = `
+            <li class="done-item item fade-in">
+              <span class="text">${item.children[0].innerText}</span>
+            </li>
+          ` + donelist.innerHTML
         }
       })
   })
+}
+
+async function deleteTodo(id) {
+  const response = await fetch(
+    baseURL + `/delete/${id}`,
+    { method: 'PUT' }
+  )
+  .then(res => res.json())
+  console.log(response)
 }
 
 addBtn.addEventListener('click', () => {

@@ -2,8 +2,8 @@
   animation: popUp 1.5s;
 }
 
-.pop-in {
-  animation: popIn 1.5s;
+.fade-in {
+  animation: fadeIn .8s;
 }
 
 @keyframes popUp {
@@ -16,12 +16,11 @@
   }
 }
 
-@keyframes popIn {
+@keyframes fadeIn {
   0% {
-    box-shadow:  25px 25px 50px #bebebe,
-                 -25px -25px 50px #ffffff;
+    opacity: 0;
   }
   100% {
-    box-shadow: none;
+    opacity: 1;
   }
 }
