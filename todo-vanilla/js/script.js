@@ -1,27 +1,63 @@
 // Todo area DOM
 const addBtn = document.getElementsByClassName('add-btn')[0]
-const todolists = document.getElementsByClassName('todo-item')
+const todolist = document.getElementsByClassName('todo-list')[0]
 
 // Add area DOM
 const addCard = document.getElementById('add')
 const addIpt = document.getElementsByClassName('add-ipt')[0]
 const addSub = document.getElementsByClassName('submit-btn')[0]
 
+// Done area DOM
+const donelist = document.getElementsByClassName('done-list')[0]
+
 // baseURL
 const baseURL = 'http://localhost:3030'
 
 async function getTodoList() {
-  const response = await fetch(
+  const todos = await fetch(
     baseURL + '/',
     { method: 'GET' }
   )
     .then(res => res.json())
-  console.log(response)
-  if (response.code !== 200) {
-    return
-  }
-  todolists.forEach((item, index) => {
+  console.log(todos)
+  const dones = await fetch(
+    baseURL + '/done',
+    { method: 'GET' }
+  )
+    .then(res => res.json())
+  console.log(dones)
 
+  let todoitems = ''
+  todos.forEach(item => {
+    todoitems += `
+      <li class="todo-item item">
+        <span class="text">${item.name}</span>
+        <input id="${item.id}" type="checkbox">
+      </li>
+    `
+  });
+  todolist.innerHTML = todoitems
+
+  let doneitems = ''
+  dones.forEach(item => {
+    doneitems += `
+      <li class="done-item item">
+        <span class="text">${item.name}</span>
+      </li>
+    `
+  });
+  donelist.innerHTML = doneitems
+
+  Array
+    .from(document.getElementsByClassName('todo-item'))
+    .forEach(item => {
+      item.children[1].addEventListener('change', e => {
+        if (e.target.checked) {
+          console.log('adf')
+          // e.target.parentNode.removeChild()
+          // deleteTodo(e.target.id)
+        }
+      })
   })
 }
 
@@ -45,3 +81,6 @@ addSub.addEventListener('click', async e => {
   addIpt.value = ''
   getTodoList()
 })
+
+// execute immediately
+getTodoList()
