@@ -7,9 +7,9 @@ const app = express()
 app.use(cors())
 
 // @url: localhost:3030/add
-// @method: PUT
+// @method: POST
 // @function: add a new todo
-app.put('/add', (req, res) => {
+app.post('/add', (req, res) => {
   console.log(req.query.name)
   connection.query(
     `insert into todo(name) values('${req.query.name}')`,
@@ -57,11 +57,11 @@ app.get('/done', (req, res) => {
 })
 
 // @url: localhost:3030/delete/:id
-// @method: PUT
+// @method: POST
 // @function: change a todo to done(by setting its is_deleted)
 app
   .route('/delete/:id')
-  .put((req, res) => {
+  .post((req, res) => {
     connection.query(
       `update todo set is_deleted = 1 where id = ${req.params.id}`,
       err => {

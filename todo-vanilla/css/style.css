@@ -69,8 +69,6 @@ header > .title {
   margin: 0 auto;
   margin-top: 3rem;
   width: 25rem;
-  /* background-color: var(--va-bg-light-color); */
-  /* height: 100px; */
 }
 
 .neumorph {
@@ -128,7 +126,6 @@ header > .title {
 
 .item > .text {
   transition: all .3s ease-in-out;
-  /* text-decoration: line-through; */
 }
 
 /* Done list style */

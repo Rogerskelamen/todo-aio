@@ -71,7 +71,7 @@ async function getTodoList() {
 async function deleteTodo(id) {
   const response = await fetch(
     baseURL + `/delete/${id}`,
-    { method: 'PUT' }
+    { method: 'POST' }
   )
   .then(res => res.json())
   console.log(response)
@@ -90,7 +90,7 @@ addSub.addEventListener('click', async e => {
   }
   const response = await fetch(
     baseURL + `/add?name=${addIpt.value}`,
-    { method: 'PUT' }
+    { method: 'POST' }
   )
     .then(res => res.json())
   console.log(response)
