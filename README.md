@@ -9,3 +9,13 @@ todo-aio, all frontend development in one little todo-list app.
 2. change `host` and `password` in `./server/connection.js`
 
 3. run `npm run start` in the root directory of server
+
+## Pre-knowledge
+
+> RTFM
+
+### todo-vanilla
+
+- [css tutorial](https://developer.mozilla.org/zh-CN/docs/Web/CSS)
+
+- [javascript tutorial](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
