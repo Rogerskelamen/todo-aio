@@ -1,0 +1,26 @@
+#todo {}
+
+.add-btn {
+  font-weight: 700;
+  color: var(--va-dark-text-color);
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  right: 0;
+  margin-top: -1.5rem;
+  text-align: center;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow:  3px 3px 5px #bebebe,
+               -3px -3px 5px #ffffff;
+}
+
+.add-btn:hover {
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+}
+
+/* todo-style */
+.todo-list {
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  font-size: 1.25rem;
+}

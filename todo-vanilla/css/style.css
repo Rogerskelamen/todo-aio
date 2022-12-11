@@ -52,8 +52,8 @@ input[type="checkbox"]:checked::before {
 /* Main style */
 body {
   background-color: var(--va-bg-light-color);
-  min-height: 100vh;
   color: var(--va-text-dark-color);
+  min-height: 100vh;
 }
 
 header {
@@ -85,16 +85,17 @@ header > .title {
   padding: 0 0.5rem;
   background-color: var(--va-text-dark-color);
   font-size: 1.125rem;
+  font-weight: 700;
   color: var(--va-bg-light-color);
   border-radius: 5px;
 }
 
 /* Todo List style */
-#todo {
-}
+#todo {}
 
 .add-btn {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--va-dark-text-color);
   width: 1.5rem;
   height: 1.5rem;
   position: absolute;
@@ -165,7 +166,8 @@ header > .title {
 
 .add-form .submit-btn {
   padding: 0.25rem 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--va-dark-text-color);
   border-radius: 5px;
   background: #e0e0e0;
   box-shadow:  3px 3px 7px #bebebe,

@@ -1,4 +1,7 @@
 import './App.css';
+import AddCard from './components/AddCard';
+import DoneCard from './components/DoneCard';
+import TodoCard from './components/TodoCard';
 
 function App() {
   return (
@@ -7,6 +10,9 @@ function App() {
         <h3 className="title">Todo React</h3>
       </header>
       <div className="container">
+        <AddCard />
+        <TodoCard />
+        <DoneCard />
       </div>
     </div>
   );

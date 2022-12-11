@@ -1,0 +1,34 @@
+#add {
+  margin-bottom: 4.25rem;
+  transition: all .3s ease-in-out;
+  opacity: 1;
+}
+
+.add-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.add-form .add-ipt {
+  background-color: var(--va-bg-light-color);
+  border: none;
+  font-size: 1.125rem;
+  width: 15rem;
+}
+
+.add-form .submit-btn {
+  padding: 0.25rem 0.5rem;
+  font-weight: 800;
+  color: var(--va-dark-text-color);
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow:  3px 3px 7px #bebebe,
+               -3px -3px 7px #ffffff;
+}
+
+.no-display {
+  display: none;
+  opacity: 0;
+}
