@@ -1,0 +1,26 @@
+.pop-up {
+  animation: popUp 1.5s;
+}
+
+.fade-in {
+  animation: fadeIn .8s;
+}
+
+@keyframes popUp {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow:  25px 25px 50px #bebebe,
+                 -25px -25px 50px #ffffff;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
