@@ -7,10 +7,11 @@ function DoneCard (props) {
       <h4 className="title">already done</h4>
       <ul className="done-list">
         {
-          props.doneList.map(done => {
-            return (<DoneItem key={done.id} text={done.name}/>);
-          })
+          props.doneList.map(done =>
+            <DoneItem key={done.id} text={done.name}/>
+          )
         }
+        <DoneItem />
       </ul>
     </div>
   )

@@ -2,6 +2,11 @@ import TodoItem from './item/TodoItem';
 import './TodoCard.css'
 
 function TodoCard (props) {
+
+  function handleCheck(id) {
+    props.handleCheck(id)
+  }
+
   return (
     <div id="todo" className="neumorph">
       <button
@@ -13,9 +18,9 @@ function TodoCard (props) {
       </h4>
       <ul className="todo-list">
         {
-          props.todoList.map(todo => {
-            return <TodoItem key={todo.id} text={todo.name} />;
-          })
+          props.todoList.map(todo =>
+            <TodoItem id={todo.id} itemCheck={handleCheck} key={todo.id} text={todo.name} />
+          )
         }
       </ul>
     </div>

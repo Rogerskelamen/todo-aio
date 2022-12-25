@@ -34,8 +34,20 @@ function App() {
     getData()
   }
 
-  function checkItem() {
-
+  async function handleCheck(id) {
+    const result = await fetch(
+      `http://localhost:3030/delete/${id}`,
+      { method: 'POST' }
+    )
+      .then(response => response.json())
+    if (result.code !== 200) {
+      console.log(result.message)
+      return
+    }
+    const newTodoList = todoList.filter(todo => todo.id !== id)
+    const newDoneList = doneList.concat(todoList.filter(todo=> todo.id === id)[0])
+    setTodoList(newTodoList)
+    setDoneList(newDoneList)
   }
 
   return (
@@ -52,7 +64,7 @@ function App() {
         <TodoCard
           clickAddBtn={() => setToggleAddCard(true)}
           todoList={todoList}
-          checkItem={() => checkItem}
+          handleCheck={handleCheck}
           />
         <DoneCard doneList={doneList} />
       </div>
