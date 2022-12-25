@@ -1,12 +1,10 @@
-import { useState } from 'react';
 import './DoneItem.css'
 
-function DoneItem () {
-  const [text, setText] = useState('asdf')
+function DoneItem (props) {
 
   return (
     <li className="done-item item">
-      <span className="text">{ text }</span>
+      <span className="text">{ props.text }</span>
     </li>
   )
 }

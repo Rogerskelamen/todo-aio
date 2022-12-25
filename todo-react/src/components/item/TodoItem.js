@@ -1,12 +1,10 @@
 import './TodoItem.css'
-import { useState } from "react"
 
-function TodoItem () {
-  const [text, setText] = useState('asdf')
+function TodoItem (props) {
 
   return (
     <li className="todo-item item">
-      <span className="text">{ text }</span>
+      <span className="text">{ props.text }</span>
       <input type="checkbox" />
     </li>
   )

@@ -27,8 +27,3 @@
   box-shadow:  3px 3px 7px #bebebe,
                -3px -3px 7px #ffffff;
 }
-
-.no-display {
-  display: none;
-  opacity: 0;
-}
