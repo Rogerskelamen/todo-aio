@@ -19,3 +19,7 @@ todo-aio, all frontend development in one little todo-list app.
 - [css tutorial](https://developer.mozilla.org/zh-CN/docs/Web/CSS)
 
 - [javascript tutorial](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+
+### todo-react
+
+- [react docs](https://zh-hans.reactjs.org/)
