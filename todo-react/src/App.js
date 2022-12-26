@@ -46,7 +46,7 @@ function App() {
     }
 
     const newTodoList = todoList.filter(todo => todo.id !== id)
-    const newDoneList = doneList.concat(todoList.filter(todo=> todo.id === id)[0])
+    const newDoneList = doneList.concat(todoList.filter(todo => todo.id === id)[0])
     setTodoList(newTodoList)
     setDoneList(newDoneList)
   }

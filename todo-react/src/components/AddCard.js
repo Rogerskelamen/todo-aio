@@ -28,7 +28,7 @@ function AddCard (props) {
         please enter
       </div>
       <form className="add-form">
-        <input className="add-ipt" type="text" value={props.newTodo} onChange={event => changeNewTodo(event)} name="todo" autoFocus />
+        <input className="add-ipt" type="text" value={newTodo} onChange={event => changeNewTodo(event)} name="todo" autoFocus />
         <button className="submit-btn" type="submit" onClick={event => addTodo(event)}>submit</button>
       </form>
     </div>
