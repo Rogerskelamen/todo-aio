@@ -1,0 +1,48 @@
+/* Reset default Tag style */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+:root {
+  --va-bg-light-color: #e0e0e0;
+  --va-text-dark-color: #001f3f;
+}
+
+/* reset checkbox */
+input[type="checkbox"] {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+}
+input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--va-bg-light-color);
+  border: 2px solid var(--va-text-dark-color);
+  border-radius: 3px;
+}
+input[type="checkbox"]:checked::before {
+  display: none;
+}
