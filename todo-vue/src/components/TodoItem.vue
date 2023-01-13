@@ -2,10 +2,10 @@
 export default {
   props: [
     'hasDone',
+    'text',
   ],
   data() {
     return {
-      dataList: [],
     }
   },
 }
@@ -13,8 +13,8 @@ export default {
 
 <template>
   <li class="item" :class="{ 'done-item': hasDone }">
-    <span class="text">asdf</span>
-    <input v-if="!hasDone" type="checkbox" />
+    <span class="text">{{ text }}</span>
+    <input v-if="!hasDone" @click="$emit('doneCheck')" type="checkbox" />
   </li>
 </template>
 

@@ -9,9 +9,65 @@ export default {
   },
   data() {
     return {
-      isAddCardVisible: true,
+      todoList: [],
+      doneList: [],
+      isAddCardVisible: false,
+      newTodo: '',
     }
   },
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    // get todos and dones using fetch
+    getData() {
+      fetch(`http://localhost:3030`, {
+        method: 'GET'
+      })
+      .then(response => response.json())
+      .then(result => this.todoList = result)
+
+      fetch(`http://localhost:3030/done`, {
+        method: 'GET'
+      })
+      .then(response => response.json())
+      .then(result => this.doneList = result)
+    },
+
+    // display add card
+    addCardDisplay() {
+      this.isAddCardVisible = true
+    },
+
+    // submit new todo
+    async submitTodo() {
+      const result = await fetch(`http://localhost:3030/add?name=${this.newTodo}`, {
+        method: 'POST'
+      })
+        .then(response => response.json())
+      if (result.code !== 200) {
+        console.log(result.message)
+        return
+      }
+      this.getData()
+      this.isAddCardVisible = false
+      this.newTodo = ''
+    },
+
+    // delete a todo
+    async deleteTodo(id) {
+      const result = await fetch(
+        `http://localhost:3030/delete/${id}`,
+        { method: 'POST' }
+      )
+        .then(response => response.json())
+      if (result.code !== 200) {
+        console.log(result.message)
+        return
+      }
+      this.getData()
+    }
+  }
 }
 </script>
 
@@ -19,42 +75,62 @@ export default {
   <header>
     <h3 class="title">Todo Vue</h3>
     <div class="container">
-      <NeumorphCard
-        id="add"
-        v-show="isAddCardVisible"
-        title="please enter"
-        :btn="false"
-      >
-        <form class="add-form">
-          <input class="add-ipt" type="text" name="todo" autofocus>
-          <button class="submit-btn" type="submit">submit</button>
-        </form>
-      </NeumorphCard>
+      <Transition name="fade">
+        <NeumorphCard
+          id="add"
+          v-show="isAddCardVisible"
+          title="please enter"
+          :btn="false"
+        >
+          <form class="add-form">
+            <input class="add-ipt" v-model="newTodo" type="text" name="todo" autofocus>
+            <button class="submit-btn" type="submit" @click.prevent="submitTodo">submit</button>
+          </form>
+        </NeumorphCard>
+      </Transition>
 
       <NeumorphCard
         title="to be done"
+        @click-add-btn="addCardDisplay"
         :btn="true"
       >
-        <TodoItem
-          v-for="i in 3" :key="i"
-          :has-done="false"
-        />
+        <TransitionGroup name="list">
+          <TodoItem
+            v-for="item in todoList" :key="item.id"
+            :text="item.name"
+            @done-check="deleteTodo(item.id)"
+            :has-done="false"
+          />
+        </TransitionGroup>
       </NeumorphCard>
       <NeumorphCard
         id="done"
         title="already done"
         :btn="false"
       >
-        <TodoItem
-          v-for="i in 3" :key="i"
-          :has-done="true"
-        />
+        <TransitionGroup name="list">
+          <TodoItem
+            v-for="item in doneList" :key="item.id"
+            :text="item.name"
+            :has-done="true"
+          />
+        </TransitionGroup>
       </NeumorphCard>
     </div>
   </header>
 </template>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: box-shadow 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+   box-shadow: none;
+}
+
 header {
   padding-top: 1.5rem;
 }

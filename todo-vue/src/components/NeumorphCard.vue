@@ -14,7 +14,7 @@ export default {
 
 <template>
   <div class="neumorph">
-    <button v-if="btn" class="add-btn">+</button>
+    <button v-if="btn" @click="$emit('clickAddBtn')" class="add-btn">+</button>
     <h4 class="title">
       {{ title }}
     </h4>
