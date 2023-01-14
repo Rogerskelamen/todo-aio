@@ -74,6 +74,8 @@ export default {
 <template>
   <header>
     <h3 class="title">Todo Vue</h3>
+  </header>
+
     <div class="container">
       <Transition name="fade">
         <NeumorphCard
@@ -117,7 +119,6 @@ export default {
         </TransitionGroup>
       </NeumorphCard>
     </div>
-  </header>
 </template>
 
 <style scoped>

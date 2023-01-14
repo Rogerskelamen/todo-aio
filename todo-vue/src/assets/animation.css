@@ -7,7 +7,7 @@
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateX(30px);
 }
 
 /* 确保将离开的元素从布局流中删除
